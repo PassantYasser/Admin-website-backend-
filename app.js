@@ -5,17 +5,20 @@ const port = 3000
 const mongoose = require('mongoose');
 //to send data
 app.use(express.urlencoded({ extended: true }));
+//ejs
+app.set('view engine', 'ejs')
+//static files (css html js files)
+app.use(express.static('Public'))
 
-//display page
-app.get('/', (req, res) => {
-  res.sendFile('./View/Home.html',{root:__dirname})
-})
+// app.get('/', (req, res) => {
+//   res.sendFile('./Views/Home.ejs',{root:__dirname})
+// })
 
 
 //post required 
-const modelData = require("./Model/personTable")
+const modelDataPerson = require("./Model/personTable")
 app.post ("/",(req , res)=>{
-  const x = new modelData(req.body)
+  const x = new modelDataPerson(req.body)
   x.save() 
   .then(() => {
     res.redirect("/");
@@ -24,6 +27,20 @@ app.post ("/",(req , res)=>{
     console.log(err);
   });
 })
+
+// read data
+
+app.get('/', (req, res) => {
+  modelDataPerson.find()
+    .then((result) => { 
+      console.log(result);
+        res.render('Home' , {title:'heloo',arr:result})
+    })
+    .catch((err) => { 
+      console.log(err)
+    })
+  })
+  
 
 
 

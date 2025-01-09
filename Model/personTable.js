@@ -8,5 +8,5 @@ const schemaData = new Schema({
 })
 
 //create model
-const modelData = mongoose.model("student",schemaData);
-module.exports=modelData;
+const modelDataPerson = mongoose.model("student",schemaData);
+module.exports=modelDataPerson;
