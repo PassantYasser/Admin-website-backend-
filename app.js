@@ -8,7 +8,7 @@ app.use(express.static('Public')); //static files (css html js files)
 
 
 
-
+//get request
 app.get('/', (req, res) => {
   res.render('index' , { })
   })
@@ -24,7 +24,19 @@ app.get('/user/view.html', (req, res) => {
   })
       
     
-  
+//post request
+const Customermodel = require('./Model/CustomerSchema')
+app.post('/' , (req,res)=>{
+  console.log(req.body);
+  const customer= new Customermodel(req.body)
+        customer.save()
+  .then(()=>{
+    res.redirect("/user/add.html")
+  })
+  .catch((error)=>{
+    console.log(error);
+  })
+})
   
 
 
