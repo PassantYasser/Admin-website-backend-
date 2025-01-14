@@ -10,7 +10,7 @@ const CustomerSchemaData = new Schema({
   age:Number,
   country:String,
   gender:String,
-})
+},{timestamps:true})
 
 //create model
 const modelCustomer = mongoose.model("Customer",CustomerSchemaData);

@@ -14,7 +14,7 @@
       content="Mark Otto, Jacob Thornton, and Bootstrap contributors"
     />
     <meta name="generator" content="Hugo 0.112.5" />
-    <title>Edit page</title>
+    <title>view page</title>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="../css/Dark-Light.css">
     <link href="../css/sidebars.css" rel="stylesheet" />
@@ -38,12 +38,12 @@
           <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">Home</a></li>
             <li class="breadcrumb-item active" aria-current="page">
-              Ali Hassan
+              <%=costArr.firstName  %> <%=costArr.lastName  %>
             </li>
           </ol>
 
           <p class=" ">
-            <span class="fw-medium fs-6">Id :</span> 6487021520bcf1af6319484c
+            <span class="fw-medium fs-6">Id :</span> <%= costArr._id %>
           </p>
         </nav>
 
@@ -51,52 +51,53 @@
           style="width: 88%"
           class="ms-1 table mt-5 table-striped table-bordered"
         >
-          <thead>
-            <tr>
-              <th scope="col">First Name</th>
-              <th class="fw-normal" scope="col">Ali</th>
-            </tr>
-          </thead>
           <tbody>
-            <tr>
-              <th scope="row">Last Name</th>
-              <td>Hassan</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Telephone</th>
-              <td>Test1</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Email</th>
-              <td>ali7assan@gmail.com</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Gender</th>
-              <td>Test3</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Age</th>
-              <td>Test4</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Country</th>
-              <td>Test5</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Created on</th>
-              <td>Test6</td>
-            </tr>
-
-            <tr>
-              <th scope="row">Last Update</th>
-              <td>Test7</td>
-            </tr>
+            
+              <tr>
+                <th scope="col">First Name</th>
+                <th class="fw-normal" scope="col"><%= costArr.firstName %></th>
+              </tr>
+  
+              <tr>
+                <th scope="row">Last Name</th>
+                <td><%= costArr.lastName %></td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Telephone</th>
+                <td><%= costArr.phoneNumber %></td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Email</th>
+                <td><%= costArr.email %>/td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Gender</th>
+                <td><%= costArr.gender %></td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Age</th>
+                <td><%= costArr.age %></td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Country</th>
+                <td><%= costArr.country %></td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Created on</th>
+                <td><%= moment(costArr.createdAt).fromNow() %> </td>
+              </tr>
+  
+              <tr>
+                <th scope="row">Last Update</th>
+                <td><%= moment(costArr.updatedAt).fromNow() %> </td>
+              </tr>
+            
           </tbody>
         </table>
 
